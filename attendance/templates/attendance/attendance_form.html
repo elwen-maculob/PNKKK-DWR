@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Attendance - DWR</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8fafc; padding: 40px 20px; color: #334155; }
+        .container { max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        h1 { color: #1e293b; margin-top: 0; font-size: 22px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; }
+        form p { margin-bottom: 20px; display: flex; flex-direction: column; }
+        form label { font-weight: 600; margin-bottom: 5px; }
+        form input, form select, form textarea { padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 14px; }
+        button { background-color: #3b82f6; color: white; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        button:hover { background-color: #2563eb; }
+        .back-link { display: inline-block; margin-top: 15px; color: #64748b; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Attendance Record</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Record</button>
+        </form>
+        <a href="{% url 'attendance_list' %}" class="back-link">&larr; Back to Attendance List</a>
+    </div>
+</body>
+</html>
